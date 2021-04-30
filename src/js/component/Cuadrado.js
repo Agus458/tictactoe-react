@@ -10,7 +10,9 @@ export default function Cuadrado(props) {
 				id="cuadrado"
 				className="card bg-dark"
 				onClick={() => {
-					props.onClick();
+					if (valor == "") {
+						setValor(props.onClick());
+					}
 				}}>
 				<div className="card-body d-flex justify-content-center align-items-center">
 					<h1 className="m-0">{valor}</h1>
