@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Cuadrado from "./Cuadrado";
+import PropTypes from "prop-types";
 
-export default function Game() {
+export default function Game(props) {
 	const [turno, setTurno] = useState("X");
 	const [game, setGame] = useState(["", "", "", "", "", "", "", "", ""]);
 	const [ganador, setGanador] = useState("");
@@ -54,7 +55,10 @@ export default function Game() {
 			<h1>Tic Tac Toe</h1>
 			<h3>Jugador actual: {turno}</h3>
 			{ganador != "" ? (
-				<h1 className="text-success">Ganador:{ganador}</h1>
+				<h1 className="text-success">
+					Ganador: {ganador}{" "}
+					{ganador == "X" ? props.jugador1 : props.jugador2}
+				</h1>
 			) : (
 				""
 			)}
@@ -85,3 +89,8 @@ export default function Game() {
 		</div>
 	);
 }
+
+Game.propTypes = {
+	jugador1: PropTypes.string,
+	jugador2: PropTypes.string
+};

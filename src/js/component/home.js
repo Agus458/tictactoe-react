@@ -19,7 +19,7 @@ export function Home() {
 	return (
 		<div className="text-center mt-5 text-light">
 			{jugador1 != null && jugador2 != null ? (
-				<Game />
+				<Game jugador1={jugador1} jugador2={jugador2} />
 			) : (
 				<div className="container">
 					<button
